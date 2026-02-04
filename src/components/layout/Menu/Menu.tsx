@@ -14,7 +14,7 @@ export const Menu = ({ onClick }: Props) => {
   return (
     <nav className={styles.menu}>
       <button className={styles.close} onClick={onClick}>
-        <IoClose color="white" size={40}/>
+        <IoClose color="white" size={40} />
       </button>
       <ul>
         {menu.map((item, idx) => (
@@ -23,9 +23,11 @@ export const Menu = ({ onClick }: Props) => {
           </li>
         ))}
         <li>
-          <button className={styles.logout} onClick={logoutHandler}>Log out</button>
+          <button className={styles.logout} onClick={logoutHandler}>
+            Log out
+          </button>
         </li>
       </ul>
     </nav>
   );
-};  
+};
