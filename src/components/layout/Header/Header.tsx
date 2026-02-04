@@ -1,6 +1,6 @@
 import { FiUsers } from "react-icons/fi";
 import styles from "./Header.module.scss";
-import { Hamburger } from "../Hamburger/Hamburger";
+import { Hamburger } from "../../common/Hamburger/Hamburger";
 
 export const Header = () => {
   return (

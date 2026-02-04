@@ -1,0 +1,61 @@
+@use "../../../styles/variables";
+@use "../../../styles/animations";
+
+.menu {
+  position: absolute;
+  background-color: variables.$accent;
+  padding: 25px 20px;
+  font-size: 26px;
+  box-shadow: variables.$bx-16;
+  min-inline-size: 40vw;
+  inset-inline-end: 0;
+  inset-block-end: 0;
+  block-size: 100vh;
+  display: flex;
+  flex-direction: column;
+  animation: opacity 0.4s;
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .logout {
+    font-size: 26px;
+    color: #fff;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.active {
+      color: variables.$brown;
+      margin: 4px 0;
+    }
+  }
+
+  .close {
+    align-self: flex-end;
+  }
+
+  > ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    block-size: 100%;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover,
+      &.active {
+        color: variables.$brown;
+        margin: 4px 0;
+      }
+    }
+  }
+}

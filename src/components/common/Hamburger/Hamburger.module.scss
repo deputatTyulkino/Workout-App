@@ -1,0 +1,19 @@
+@use "../../../styles/variables";
+@use "../../../styles/animations";
+
+.wrapper {
+  position: relative;
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.2 ease;
+  }
+
+  .close {
+    opacity: 0;
+  }
+}
