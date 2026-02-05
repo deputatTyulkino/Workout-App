@@ -6,14 +6,14 @@ import { useModal } from "../../../store/useModal";
 import cn from "clsx";
 
 export const Hamburger = () => {
-  const { isShow, handleShow } = useModal();
+  const { isShow, onShowModal } = useModal();
 
   return (
     <>
-      <button className={cn({ [styles.close]: isShow })} onClick={handleShow}>
+      <button className={cn({ [styles.close]: isShow })} onClick={onShowModal}>
         <CgMenuRight color="white" size={30} />
       </button>
-      {isShow && createPortal(<Menu onClick={handleShow} />, document.body)}
+      {isShow && createPortal(<Menu />, document.body)}
     </>
   );
 };

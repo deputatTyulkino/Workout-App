@@ -3,7 +3,8 @@ import type { TModalContext } from "./store.type";
 
 const initialValue = {
   isShow: false,
-  handleShow: () => {},
+  onShowModal: () => {},
+  onCloseModal: () => {},
 };
 
 export const ModalContext = createContext<TModalContext>(initialValue);

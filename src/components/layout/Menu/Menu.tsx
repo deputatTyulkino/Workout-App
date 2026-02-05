@@ -1,19 +1,22 @@
 import { IoClose } from "react-icons/io5";
-import type { TModalContext } from "../../../store/store.type";
 import styles from "./Menu.module.scss";
 import { menu } from "./menu.data";
 import { NavLink } from "react-router";
+import { useModal } from "../../../store/useModal";
+import { useCloseModal } from "../../../hooks/useCloseModal";
 
-type Props = {
-  onClick: TModalContext["handleShow"];
-};
+// type Props = {
+//   onClick: TModalContext["handleShow"];
+// };
 
-export const Menu = ({ onClick }: Props) => {
+export const Menu = () => {
   const logoutHandler = () => {};
+  const { isShow, onCloseModal } = useModal();
+  const modalRef = useCloseModal(isShow, onCloseModal);
 
   return (
-    <nav className={styles.menu}>
-      <button className={styles.close} onClick={onClick}>
+    <nav ref={modalRef} className={styles.menu}>
+      <button className={styles.close} onClick={onCloseModal}>
         <IoClose color="white" size={40} />
       </button>
       <ul>

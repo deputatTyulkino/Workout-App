@@ -4,12 +4,16 @@ import { ModalContext } from "./contextModal";
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [isShow, setIsShow] = useState(false);
 
-  const handleShow = () => {
-    setIsShow((prev) => !prev);
+  const onShowModal = () => {
+    setIsShow(true);
+  };
+
+  const onCloseModal = () => {
+    setIsShow(false);
   };
 
   return (
-    <ModalContext.Provider value={{ isShow, handleShow }}>
+    <ModalContext.Provider value={{ isShow, onShowModal, onCloseModal }}>
       {children}
     </ModalContext.Provider>
   );

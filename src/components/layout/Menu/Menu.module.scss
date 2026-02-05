@@ -2,18 +2,19 @@
 @use "../../../styles/animations";
 
 .menu {
-  position: absolute;
+  position: fixed;
+  inset: 0;
+  inset-inline-start: auto;
+  inset-inline-end: 0;
   background-color: variables.$accent;
   padding: 25px 20px;
   font-size: 26px;
   box-shadow: variables.$bx-16;
   min-inline-size: 40vw;
-  inset-inline-end: 0;
-  inset-block-end: 0;
-  block-size: 100vh;
   display: flex;
   flex-direction: column;
   animation: translate 0.4s;
+  z-index: 1000;
 
   button {
     background-color: transparent;
