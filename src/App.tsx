@@ -1,12 +1,8 @@
-import { Header } from "./components/layout/Header/Header";
-import { ModalProvider } from "./store/ModalProvider";
+import { RouterProvider } from "react-router";
+import { router } from "./router/routes";
 
 function App() {
-  return (
-    <ModalProvider>
-      <Header />
-    </ModalProvider>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

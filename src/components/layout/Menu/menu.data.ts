@@ -1,14 +1,16 @@
+import { ROUTES } from "../../../constants/routes";
+
 export const menu = [
   {
     title: "Workouts",
-    link: "/workouts",
+    link: ROUTES.workouts,
   },
   {
     title: "Create new",
-    link: "/new-workout",
+    link: ROUTES.new_workout,
   },
   {
     title: "Profile",
-    link: "/profile",
+    link: ROUTES.profile,
   },
 ];

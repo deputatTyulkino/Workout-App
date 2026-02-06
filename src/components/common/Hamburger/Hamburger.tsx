@@ -1,18 +1,17 @@
 import { CgMenuRight } from "react-icons/cg";
-import styles from "./Hamburger.module.scss";
 import { createPortal } from "react-dom";
 import { Menu } from "../../layout/Menu/Menu";
 import { useModal } from "../../../store/useModal";
-import cn from "clsx";
+import { Button } from "../../ui/Button/Button";
 
 export const Hamburger = () => {
   const { isShow, onShowModal } = useModal();
 
   return (
     <>
-      <button className={cn({ [styles.close]: isShow })} onClick={onShowModal}>
-        <CgMenuRight color="white" size={30} />
-      </button>
+      <Button isIcon={true} onClick={onShowModal}>
+        <CgMenuRight color="white" size={40} />
+      </Button>
       {isShow && createPortal(<Menu />, document.body)}
     </>
   );

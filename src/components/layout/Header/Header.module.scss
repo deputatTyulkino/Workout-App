@@ -1,8 +1,9 @@
+@use "../../../styles/variables";
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 30px 25px 0;
+  padding: 30px variables.$global-padding;
 
   > button {
     background-color: transparent;

@@ -1,0 +1,6 @@
+@use "../../styles/variables";
+.layout {
+  padding: 35px variables.$global-padding;
+  inline-size: 100%;
+  block-size: 100%;
+}

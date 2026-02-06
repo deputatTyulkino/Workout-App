@@ -4,10 +4,7 @@ import { menu } from "./menu.data";
 import { NavLink } from "react-router";
 import { useModal } from "../../../store/useModal";
 import { useCloseModal } from "../../../hooks/useCloseModal";
-
-// type Props = {
-//   onClick: TModalContext["handleShow"];
-// };
+import { Button } from "../../ui/Button/Button";
 
 export const Menu = () => {
   const logoutHandler = () => {};
@@ -16,9 +13,9 @@ export const Menu = () => {
 
   return (
     <nav ref={modalRef} className={styles.menu}>
-      <button className={styles.close} onClick={onCloseModal}>
-        <IoClose color="white" size={40} />
-      </button>
+      <Button isClose={true} isIcon={true} onClick={onCloseModal}>
+        <IoClose color="white" size={45} />
+      </Button>
       <ul>
         {menu.map((item, idx) => (
           <li key={`_menu_${idx}`}>
@@ -26,9 +23,9 @@ export const Menu = () => {
           </li>
         ))}
         <li>
-          <button className={styles.logout} onClick={logoutHandler}>
+          <Button isLogout={true} onClick={logoutHandler}>
             Log out
-          </button>
+          </Button>
         </li>
       </ul>
     </nav>

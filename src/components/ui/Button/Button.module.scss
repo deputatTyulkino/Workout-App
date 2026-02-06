@@ -1,0 +1,60 @@
+@use "../../../styles/variables";
+
+.button {
+  border: none;
+  outline: none;
+  color: #f1e8e8;
+  background-color: rgba(255, 255, 255, 0.2);
+  inline-size: 150px;
+  block-size: 45px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 400;
+  font-size: 24px;
+  border-radius: 15px;
+
+  &.main {
+    block-size: 60px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid variables.$accent;
+  }
+
+  &:hover {
+    background-color: variables.$accent;
+    color: #fff;
+  }
+}
+
+.icon {
+  background-color: transparent;
+  opacity: 1;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &.close {
+    align-self: flex-end;
+  }
+}
+
+.logout {
+  font-size: variables.$nav_link-size;
+  color: #fff;
+  transition: color 0.2s ease;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    color: variables.$brown;
+    margin: 4px 0;
+  }
+}

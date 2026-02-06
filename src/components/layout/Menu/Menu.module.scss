@@ -8,36 +8,13 @@
   inset-inline-end: 0;
   background-color: variables.$accent;
   padding: 25px 20px;
-  font-size: 26px;
+  font-size: variables.$nav_link-size;
   box-shadow: variables.$bx-16;
   min-inline-size: 40vw;
   display: flex;
   flex-direction: column;
   animation: translate 0.4s;
   z-index: 1000;
-
-  button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-
-  .logout {
-    font-size: 26px;
-    color: #fff;
-    transition: color 0.2s ease;
-
-    &:hover,
-    &.active {
-      color: variables.$brown;
-      margin: 4px 0;
-    }
-  }
-
-  .close {
-    align-self: flex-end;
-  }
 
   > ul {
     list-style: none;
