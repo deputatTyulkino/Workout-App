@@ -11,4 +11,8 @@
   background-position: center top;
   background-size: cover;
   padding: 35px variables.$global-padding;
+
+  p {
+    font-size: 22px;
+  }
 }

@@ -16,25 +16,33 @@ export const Home = () => {
   const { isAuth } = useAuth();
   const navigate = useNavigate();
 
-  if (!isAuth) {
-    return (
-      <Button isMain={true} onClick={() => navigate(ROUTES.login)}>
-        Login
-      </Button>
-    );
-  }
-
   return (
     <article className={styles.home}>
-      <Button
-        isButton={true}
-        isMain={true}
-        onClick={() => navigate(ROUTES.new_workout)}
-      >
-        New
-      </Button>
-      <Heading>Move more, live better, feel stronger</Heading>
-      <Table inf={inf} />
+      {isAuth ? (
+        <>
+          <Button
+            isButton={true}
+            isMain={true}
+            onClick={() => navigate(ROUTES.new_workout)}
+          >
+            New
+          </Button>
+          <Heading>Move more, live better, feel stronger</Heading>
+          <Table inf={inf} />
+        </>
+      ) : (
+        <>
+          <Heading>Welcome!</Heading>
+          <p>Log in to access your personal account</p>
+          <Button
+            isButton={true}
+            isMain={true}
+            onClick={() => navigate(ROUTES.login)}
+          >
+            Login
+          </Button>
+        </>
+      )}
     </article>
   );
 };
