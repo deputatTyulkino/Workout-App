@@ -3,8 +3,16 @@ import { useAuth } from "../../hooks/useAuth";
 import { Button } from "../../components/ui/Button/Button";
 import { Heading } from "../../components/ui/Heading/Heading";
 import { ROUTES } from "../../constants/routes";
+import styles from "./Home.module.scss";
+import { Table } from "../../components/ui/Table/Table";
 
 export const Home = () => {
+  const inf = {
+    minutes: 20,
+    level: "Hard",
+    up: 5,
+  };
+
   const { isAuth } = useAuth();
   const navigate = useNavigate();
 
@@ -17,7 +25,7 @@ export const Home = () => {
   }
 
   return (
-    <>
+    <article className={styles.home}>
       <Button
         isButton={true}
         isMain={true}
@@ -26,6 +34,7 @@ export const Home = () => {
         New
       </Button>
       <Heading>Move more, live better, feel stronger</Heading>
-    </>
+      <Table inf={inf} />
+    </article>
   );
 };

@@ -1,0 +1,21 @@
+@use "../../../styles/variables";
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.header {
+  color: variables.$table_head-color;
+  font-weight: variables.$table_head-weight;
+  font-size: variables.$table-size;
+  text-align: center;
+}
+
+.cell {
+  color: #ffffff;
+  font-size: variables.$table-size;
+  font-weight: variables.$table_cell-weight;
+  text-align: center;
+}
