@@ -1,0 +1,42 @@
+@use "../../../styles/variables";
+
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+
+  .title_block {
+    background-image: url("../../assets/images/login.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+    padding: 10px variables.$global-padding;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: variables.$bx-accent;
+    block-size: 45%;
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+
+    h1 {
+      margin-block-end: 10px;
+    }
+  }
+
+  .inputs_block {
+    inline-size: 100%;
+    padding: 50px variables.$global-padding;
+
+    form {
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
