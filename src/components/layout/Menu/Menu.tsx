@@ -13,7 +13,7 @@ export const Menu = () => {
 
   return (
     <nav ref={modalRef} className={styles.menu}>
-      <Button isClose={true} isIcon={true} onClick={onCloseModal}>
+      <Button variant="icon" onClick={onCloseModal}>
         <IoClose color="white" size={45} />
       </Button>
       <ul>
@@ -23,7 +23,7 @@ export const Menu = () => {
           </li>
         ))}
         <li>
-          <Button isLogout={true} onClick={logoutHandler}>
+          <Button variant="logout" onClick={logoutHandler}>
             Log out
           </Button>
         </li>

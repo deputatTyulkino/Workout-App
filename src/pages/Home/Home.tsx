@@ -34,11 +34,7 @@ export const Home = () => {
         <>
           <Heading>Welcome!</Heading>
           <p>Log in to access your personal account</p>
-          <Button
-            isButton={true}
-            isMain={true}
-            onClick={() => navigate(ROUTES.login)}
-          >
+          <Button variant="main" onClick={() => navigate(ROUTES.login)}>
             Login
           </Button>
         </>

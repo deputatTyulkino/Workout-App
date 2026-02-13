@@ -1,21 +1,44 @@
 @use "../../../styles/variables";
 
-.button {
+.normal {
+  border: none;
+  outline: none;
+  color: #fff;
+  background-color: variables.$light-brown;
+  inline-size: 200px;
+  block-size: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 15px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 1px solid variables.$accent;
+  }
+
+  &:hover {
+    background-color: variables.$accent;
+    color: #fff;
+  }
+}
+
+.main {
+  block-size: 60px;
   border: none;
   outline: none;
   color: #f1e8e8;
   background-color: rgba(255, 255, 255, 0.2);
   inline-size: 150px;
-  block-size: 45px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   font-weight: 400;
   font-size: 24px;
   border-radius: 15px;
-
-  &.main {
-    block-size: 60px;
-  }
 
   &:focus {
     outline: none;
@@ -37,10 +60,6 @@
   border: none;
   outline: none;
   cursor: pointer;
-
-  &.close {
-    align-self: flex-end;
-  }
 }
 
 .logout {

@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const UserSchema = z.object({
+export const UserSchema = z.strictObject({
   username: z.string({
     error: (iss) =>
       iss.input === undefined

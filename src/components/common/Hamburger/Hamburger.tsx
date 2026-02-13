@@ -9,7 +9,7 @@ export const Hamburger = () => {
 
   return (
     <>
-      <Button isIcon={true} onClick={onShowModal}>
+      <Button variant="icon" onClick={onShowModal}>
         <CgMenuRight color="white" size={40} />
       </Button>
       {isShow && createPortal(<Menu />, document.body)}

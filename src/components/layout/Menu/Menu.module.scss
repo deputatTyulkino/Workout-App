@@ -16,6 +16,10 @@
   animation: translate 0.4s;
   z-index: 1000;
 
+  > button {
+    align-self: flex-end;
+  }
+
   > ul {
     list-style: none;
     display: flex;

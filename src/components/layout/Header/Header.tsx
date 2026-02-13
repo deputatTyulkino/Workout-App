@@ -20,7 +20,7 @@ export const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Button isIcon={true} onClick={navigateTo}>
+      <Button variant="icon" onClick={navigateTo}>
         {isProfileIcon ? (
           <FiUsers color="white" size={35} />
         ) : (
