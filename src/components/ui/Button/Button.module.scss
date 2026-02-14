@@ -13,6 +13,11 @@
   font-size: 20px;
   border-radius: 15px;
 
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
   &:focus {
     outline: none;
   }

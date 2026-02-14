@@ -9,7 +9,7 @@ export type TLoginForm = z.infer<typeof LoginSchema>;
 
 export const useLoginForm = (): UseFormReturn<TLoginForm> => {
   return useForm<TLoginForm>({
-    mode: "onChange",
+    mode: "onBlur",
     defaultValues: {
       email: "",
       password: "",

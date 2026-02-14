@@ -5,11 +5,18 @@ import { NavLink } from "react-router";
 import { useModal } from "../../../store/useModal";
 import { useCloseModal } from "../../../hooks/useCloseModal";
 import { Button } from "../../ui/Button/Button";
+import { useCallback } from "react";
+import { blur } from "../../../utils/Blur";
 
 export const Menu = () => {
   const logoutHandler = () => {};
   const { isShow, onCloseModal } = useModal();
   const modalRef = useCloseModal(isShow, onCloseModal);
+
+  const close = useCallback(() => {
+    blur(false);
+    onCloseModal();
+  }, [onCloseModal]);
 
   return (
     <nav ref={modalRef} className={styles.menu}>
@@ -19,7 +26,9 @@ export const Menu = () => {
       <ul>
         {menu.map((item, idx) => (
           <li key={`_menu_${idx}`}>
-            <NavLink to={item.link}>{item.title}</NavLink>
+            <NavLink onClick={close} to={item.link}>
+              {item.title}
+            </NavLink>
           </li>
         ))}
         <li>

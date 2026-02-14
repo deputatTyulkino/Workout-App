@@ -1,4 +1,5 @@
 import { useEffect, useRef, type RefObject } from "react";
+import { blur } from "../utils/Blur";
 
 export const useCloseModal = <T extends HTMLElement>(
   isOpen: boolean,

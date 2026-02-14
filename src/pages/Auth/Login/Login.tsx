@@ -1,4 +1,4 @@
-import type { SubmitHandler } from "react-hook-form";
+import { FormProvider, type SubmitHandler } from "react-hook-form";
 import { Button } from "../../../components/ui/Button/Button";
 import { Heading } from "../../../components/ui/Heading/Heading";
 import { Input } from "../../../components/ui/Input/Input";
@@ -8,13 +8,18 @@ import type { TLoginForm } from "../../../hooks/useLoginForm";
 import { Link } from "react-router";
 
 export const Login = () => {
+  const methods = useLoginForm();
   const {
-    register,
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
-  } = useLoginForm();
+  } = methods;
 
-  const onSubmit: SubmitHandler<TLoginForm> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<TLoginForm> = async (data) => {
+    setTimeout(async () => {
+      console.log(data);
+      return await Promise.resolve();
+    }, 1500);
+  };
 
   return (
     <article className={styles.login}>
@@ -22,18 +27,37 @@ export const Login = () => {
         <Heading>Log in</Heading>
       </div>
       <div className={styles.inputs_block}>
-        <form
-          method="POST"
-          action=""
-          noValidate
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <Input register={register} name="email" type="email" isValid />
-          <Input register={register} name="password" type="password" isValid />
-          <Button variant="normal" onClick={() => console.log("send")}>
-            Log in
-          </Button>
-        </form>
+        <FormProvider {...methods}>
+          <form
+            method="POST"
+            action="/"
+            noValidate
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <div className={styles.input_block}>
+              <Input name="email" type="email" placeholder="E-mail" />
+              {errors?.email && (
+                <span className={styles.error}>{errors?.email?.message}</span>
+              )}
+            </div>
+            <div className={styles.input_block}>
+              <Input name="password" type="password" placeholder="Password" />
+              {errors?.password && (
+                <span className={styles.error}>
+                  {errors?.password?.message}
+                </span>
+              )}
+            </div>
+            <Button
+              type="submit"
+              disabled={!isValid}
+              variant="normal"
+              onClick={() => console.log("send")}
+            >
+              {isSubmitting ? "Send..." : "Log in"}
+            </Button>
+          </form>
+        </FormProvider>
         <Link to="/auth/register">There's not account?</Link>
       </div>
     </article>

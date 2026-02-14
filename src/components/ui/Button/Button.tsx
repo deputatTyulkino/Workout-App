@@ -6,11 +6,24 @@ type Props = {
   children: ReactNode;
   onClick: () => void;
   variant: "icon" | "main" | "normal" | "logout";
+  disabled?: boolean;
+  type?: "submit" | "button";
 };
 
-export const Button = ({ children, onClick, variant }: Props) => {
+export const Button = ({
+  children,
+  onClick,
+  variant,
+  disabled = false,
+  type = "button",
+}: Props) => {
   return (
-    <button className={cn(styles[variant])} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={cn(styles[variant], { [styles.disabled]: disabled })}
+      onClick={onClick}
+      type={type}
+    >
       {children}
     </button>
   );
