@@ -33,28 +33,42 @@
   .images {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
     inline-size: 100%;
     padding: 0 variables.$global-padding;
 
-    .before_image {
-      block-size: 300px;
-      inline-size: 200px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 15px;
-      flex-grow: 3;
-    }
+    .image_block {
+      flex-grow: 2;
+      flex-basis: 200px;
+      block-size: 335px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    .after_image {
-      block-size: 300px;
-      inline-size: 200px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 15px;
-      flex-grow: 3;
+      > p {
+        font-size: 18px;
+        font-weight: 400;
+        color: #fff;
+        margin-block-end: 10px;
+      }
+
+      .before_image {
+        block-size: 100%;
+        inline-size: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 15px;
+      }
+
+      .after_image {
+        block-size: 100%;
+        inline-size: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 15px;
+      }
     }
   }
 }

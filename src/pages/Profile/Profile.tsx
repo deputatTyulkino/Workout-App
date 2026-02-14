@@ -18,14 +18,20 @@ export const Profile = () => {
         <Table inf={inf} />
       </div>
       <div className={styles.images}>
-        <img
-          className={styles.before_image}
-          src="src/assets/images/profile-before.jpg"
-        />
-        <img
-          className={styles.after_image}
-          src="src/assets/images/profile-after.jpg"
-        />
+        <div className={styles.image_block}>
+          <p>Before</p>
+          <img
+            className={styles.before_image}
+            src="src/assets/images/profile-before.jpg"
+          />
+        </div>
+        <div className={styles.image_block}>
+          <p>After</p>
+          <img
+            className={styles.after_image}
+            src="src/assets/images/profile-after.jpg"
+          />
+        </div>
       </div>
     </article>
   );
