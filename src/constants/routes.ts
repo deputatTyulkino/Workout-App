@@ -4,7 +4,9 @@ export const ROUTES = {
   login: "/auth/login",
   register: "/auth/register",
   workouts: "/workouts",
-  exercise: (slug: string) => `/workouts/${slug}`,
+  workout: (id: number) => `/workouts/${id}`,
+  exercises: "/exercises",
+  exercise: (id: number) => `/workouts/${id}`,
   new_workout: "/create/workout",
   new_exercise: "/create/exercise",
 } as const;

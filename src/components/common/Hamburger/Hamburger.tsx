@@ -12,7 +12,7 @@ export const Hamburger = () => {
       <Button variant="icon" onClick={onShowModal}>
         <CgMenuRight color="white" size={40} />
       </Button>
-      {isShow && createPortal(<Menu />, document.body)}
+      {isShow && createPortal(<Menu />, document.querySelector("header")!)}
     </>
   );
 };

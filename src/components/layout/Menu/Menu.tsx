@@ -22,7 +22,7 @@ export const Menu = () => {
   return (
     <nav
       ref={modalRef}
-      className="fixed inset-0 inset-s-auto inset-e-0 bg-accent py-6.25! px-5! text-nav-link min-inline-[50%] inline-[50%] flex flex-col z-1000"
+      className="fixed inset-0 inset-s-auto inset-e-0 bg-accent py-6.25! px-5! text-nav-link min-inline-[50%] inline-[50%] flex flex-col z-1000 animate-translate"
     >
       <Button variant="icon" className="self-end" onClick={onCloseModal}>
         <IoClose color="white" size={45} />

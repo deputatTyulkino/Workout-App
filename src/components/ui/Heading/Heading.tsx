@@ -1,7 +1,19 @@
 import type { ReactNode } from "react";
+import cn from "clsx";
 
-export const Heading = ({ children }: { children: ReactNode }) => {
+type Props = {
+  children: ReactNode;
+  className?: string;
+};
+
+export const Heading = ({ children, className = "" }: Props) => {
   return (
-    <h1 className="font-bold text-4xl uppercase text-center">{children}</h1>
+    <h1
+      className={cn("font-bold text-4xl uppercase text-center", {
+        [className]: !!className,
+      })}
+    >
+      {children}
+    </h1>
   );
 };
