@@ -1,5 +1,5 @@
 export const blur = (blur: boolean): void => {
-  const root = document.querySelector<HTMLDivElement>("#root");
+  const root = document.querySelector<HTMLDivElement>("#base");
   if (root) {
     if (blur) {
       root.style.filter = "blur(10px)";

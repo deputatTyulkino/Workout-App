@@ -1,20 +1,20 @@
-@use "./variables";
-
 * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  &:before,
-  &:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  &:focus {
-    outline: none;
-  }
+}
+
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
 }
 
 *::-webkit-input-placeholder {
@@ -42,7 +42,7 @@ body {
 }
 
 body {
-  background-color: variables.$black;
+  background-color: #1a0612;
   padding: 0;
   margin: 0;
   color: #fff;
@@ -50,7 +50,7 @@ body {
   min-inline-size: 320px;
   position: relative;
   line-height: 1.65;
-  font-family: variables.$default-font;
+  font-family: "Arial";
   overflow-x: hidden;
 }
 

@@ -8,7 +8,7 @@ export const Layout = () => {
       <ModalProvider>
         <Header />
       </ModalProvider>
-      <section id="home" className="grid inline-full block-full">
+      <section id="base" className="grid inline-full block-full">
         <Outlet />
       </section>
     </>
