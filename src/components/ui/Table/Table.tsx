@@ -1,5 +1,4 @@
 import { useId } from "react";
-import styles from "./Table.module.scss";
 import { capitalize } from "../../../utils/Capitalize";
 
 interface InfHome {
@@ -9,9 +8,9 @@ interface InfHome {
 }
 
 interface InfProfile {
-  minutes: number,
-  workouts: number,
-  kg: number
+  minutes: number;
+  workouts: number;
+  kg: number;
 }
 
 type Props = {
@@ -21,11 +20,14 @@ type Props = {
 export const Table = ({ inf }: Props) => {
   const id = useId();
   return (
-    <table className={styles.table}>
+    <table className="w-full border-collapse table-fixed">
       <thead>
         <tr>
           {Object.keys(inf).map((key) => (
-            <th key={`${id}-header-${key}`} className={styles.header}>
+            <th
+              key={`${id}-header-${key}`}
+              className="text-table-head font-normal text-table text-center"
+            >
               {capitalize(key)}
             </th>
           ))}
@@ -35,7 +37,10 @@ export const Table = ({ inf }: Props) => {
         <tr>
           {Object.entries(inf).map(
             ([key, value]: [string, string | number]) => (
-              <td key={`${id}-cell-${key}`} className={styles.cell}>
+              <td
+                key={`${id}-cell-${key}`}
+                className="text-white text-table font-bold text-center"
+              >
                 {key === "up" ? value + "%" : value}
               </td>
             ),
