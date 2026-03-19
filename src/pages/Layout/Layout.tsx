@@ -1,7 +1,6 @@
 import { Outlet } from "react-router";
 import { Header } from "../../components/layout/Header/Header";
-import { ModalProvider } from "../../store/ModalProvider";
-import styles from "./Layout.module.scss";
+import { ModalProvider } from "../../store/Modal/ModalProvider";
 
 export const Layout = () => {
   return (
@@ -9,7 +8,7 @@ export const Layout = () => {
       <ModalProvider>
         <Header />
       </ModalProvider>
-      <section id="home" className={styles.layout}>
+      <section id="home" className="grid inline-full block-full">
         <Outlet />
       </section>
     </>
