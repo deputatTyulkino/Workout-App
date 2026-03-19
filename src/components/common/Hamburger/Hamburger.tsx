@@ -1,7 +1,7 @@
 import { CgMenuRight } from "react-icons/cg";
 import { createPortal } from "react-dom";
 import { Menu } from "../../layout/Menu/Menu";
-import { useModal } from "../../../store/useModal";
+import { useModal } from "../../../store/Modal/useModal";
 import { Button } from "../../ui/Button/Button";
 
 export const Hamburger = () => {

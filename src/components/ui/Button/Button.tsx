@@ -7,6 +7,7 @@ type Props = {
   variant: "icon" | "main" | "normal" | "logout";
   disabled?: boolean;
   type?: "submit" | "button";
+  className?: string;
 };
 
 export const Button = ({
@@ -15,6 +16,7 @@ export const Button = ({
   variant,
   disabled = false,
   type = "button",
+  className = "",
 }: Props) => {
   const styles = {
     main: "block-15 border-none outline-none text-button bg-button-bg inline-37.5 cursor-pointer transition-colors duration-300 ease-out font-normal text-2xl rounded-[15px] hover:bg-accent hover:text-white focus:outline-none focus-visible:outline-1 focus-visible:outline-accent focus-visible:outline-solid",
@@ -27,7 +29,7 @@ export const Button = ({
   return (
     <button
       disabled={disabled}
-      className={styles}
+      className={cn(styles, { [className]: !!className })}
       onClick={onClick}
       type={type}
     >

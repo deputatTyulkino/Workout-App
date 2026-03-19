@@ -1,14 +1,15 @@
 import { IoClose } from "react-icons/io5";
-import styles from "./Menu.module.scss";
+import cn from "clsx";
 import { menu } from "./menu.data";
 import { NavLink } from "react-router";
-import { useModal } from "../../../store/useModal";
-import { useCloseModal } from "../../../hooks/useCloseModal";
+import { useModal } from "../../../store/Modal/useModal";
+import { useCloseModal } from "../../../hooks/global/useCloseModal";
 import { Button } from "../../ui/Button/Button";
-import { useCallback } from "react";
+import { useCallback, useId } from "react";
 import { blur } from "../../../utils/Blur";
 
 export const Menu = () => {
+  const id = useId();
   const logoutHandler = () => {};
   const { isShow, onCloseModal } = useModal();
   const modalRef = useCloseModal(isShow, onCloseModal);
@@ -19,14 +20,26 @@ export const Menu = () => {
   }, [onCloseModal]);
 
   return (
-    <nav ref={modalRef} className={styles.menu}>
-      <Button variant="icon" onClick={onCloseModal}>
+    <nav
+      ref={modalRef}
+      className="fixed inset-0 inset-s-auto inset-e-0 bg-accent py-6.25! px-5! text-nav-link min-inline-[50%] inline-[50%] flex flex-col z-1000"
+    >
+      <Button variant="icon" className="self-end" onClick={onCloseModal}>
         <IoClose color="white" size={45} />
       </Button>
-      <ul>
+      <ul className="list-none flex flex-col items-center block-full justify-evenly">
         {menu.map((item, idx) => (
-          <li key={`_menu_${idx}`}>
-            <NavLink onClick={close} to={item.link}>
+          <li key={`${id}_menu_${idx}`}>
+            <NavLink
+              className={({ isActive }) =>
+                cn(
+                  "text-white decoration-0 transition-colors duration-200 ease-out hover:text-brown",
+                  { "text-brown!": isActive },
+                )
+              }
+              onClick={close}
+              to={item.link}
+            >
               {item.title}
             </NavLink>
           </li>
