@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/auth/useAuth";
 import { Button } from "../../components/ui/Button/Button";
 import { Heading } from "../../components/ui/Heading/Heading";
 import { ROUTES } from "../../constants/routes";
-import styles from "./Home.module.scss";
 import { Table } from "../../components/ui/Table/Table";
+import homeBg from "../../assets/images/home-bg.png";
 
 export const Home = () => {
   const inf = {
@@ -17,14 +17,15 @@ export const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <article className={styles.home}>
+    <article
+      style={{
+        backgroundImage: `url(${homeBg})`,
+      }}
+      className="flex flex-col gap-10 items-center justify-end bg-no-repeat bg-center-top bg-cover py-8.75! px-6.25!"
+    >
       {isAuth ? (
         <>
-          <Button
-            isButton={true}
-            isMain={true}
-            onClick={() => navigate(ROUTES.new_workout)}
-          >
+          <Button variant="main" onClick={() => navigate(ROUTES.new_workout)}>
             New
           </Button>
           <Heading>Move more, live better, feel stronger</Heading>
@@ -33,7 +34,7 @@ export const Home = () => {
       ) : (
         <>
           <Heading>Welcome!</Heading>
-          <p>Log in to access your personal account</p>
+          <p className="text-[22px]">Log in to access your personal account</p>
           <Button variant="main" onClick={() => navigate(ROUTES.login)}>
             Login
           </Button>
