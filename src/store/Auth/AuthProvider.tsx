@@ -3,14 +3,15 @@ import { AuthContext } from "./authContext";
 import type { TProfile } from "../../schemas/profile.schema";
 import { useMutation, useQueryClient, useQuery } from "@tanstack/react-query";
 import type { TLogin } from "../../schemas/login.schema";
-import { ApiServices } from "../../api/endpoints/api";
+import { ApiServices } from "../../api/endpoints/auth";
 import Cookies from "js-cookie";
 import { TOKEN_KEY } from "../../constants/token.const";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { ROUTES } from "../../constants/routes.const";
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const navigate = useNavigate();
+  const { state } = useLocation();
   const queryClient = useQueryClient();
 
   const { data, isLoading, isPending, isError, error } = useQuery({
@@ -30,7 +31,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     onSuccess: ({ data }, _, __, context) => {
       Cookies.set(TOKEN_KEY, data.access);
       context.client.setQueryData(["me"], data.user);
-      navigate(ROUTES.home);
+      navigate(state.pathname ?? ROUTES.home);
     },
   });
 
