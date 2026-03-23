@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     onSuccess: ({ data }, _, __, context) => {
       Cookies.set(TOKEN_KEY, data.access);
       context.client.setQueryData(["me"], data.user);
-      navigate(state.pathname ?? ROUTES.home);
+      navigate(state.pathname ?? ROUTES.home, { replace: true });
     },
   });
 
