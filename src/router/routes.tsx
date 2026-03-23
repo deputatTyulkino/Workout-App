@@ -5,11 +5,14 @@ import { Login } from "../pages/Auth/Login/Login";
 import { Register } from "../pages/Auth/Register/Register";
 import { PrivateRouter } from "./PrivateRouter";
 import { Exercise } from "../pages/Exercise/Exercise";
+import { Exercises } from "../pages/Exercises/Exercises";
 import { NotFound } from "../pages/NotFound/NotFound";
 import { Layout } from "../pages/Layout/Layout";
 import { NewWorkout } from "../pages/NewWorkout/NewWorkout";
 import { NewExercise } from "../pages/NewExercise/NewExercise";
 import { Profile } from "../pages/Profile/Profile";
+import { Workout } from "../pages/Workout/Workout";
+import { GuestRouter } from "./GuestRouter";
 
 export const router = createBrowserRouter([
   {
@@ -22,10 +25,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <PrivateRouter>
+            <Profile />
+          </PrivateRouter>
+        ),
       },
       {
         path: "/auth",
+        element: <GuestRouter />,
         children: [
           {
             path: "login",
@@ -46,9 +54,20 @@ export const router = createBrowserRouter([
         ),
         children: [
           {
-            path: ":slug",
-            element: <Exercise />,
-            errorElement: <NotFound />,
+            path: ":workout_id",
+            element: <Workout />,
+            children: [
+              {
+                path: "exercises",
+                element: <Exercises />,
+                children: [
+                  {
+                    path: ":exercise_id",
+                    element: <Exercise />,
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
