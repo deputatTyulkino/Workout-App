@@ -1,6 +1,6 @@
 import { useCallback, useState, type ReactNode } from "react";
 import { ModalContext } from "./contextModal";
-import { blur } from "../utils/Blur";
+import { blur } from "../../utils/Blur";
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
   const [isShow, setIsShow] = useState(false);
