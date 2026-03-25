@@ -3,24 +3,21 @@ import { Button } from "../../../components/ui/Button/Button";
 import { Heading } from "../../../components/ui/Heading/Heading";
 import { Input } from "../../../components/ui/Input/Input";
 import { Link } from "react-router";
-import {
-  useRegisterForm,
-  type TRegisterForm,
-} from "../../../hooks/forms/useRegisterForm";
+import { useRegisterForm } from "../../../hooks/forms/useRegisterForm";
 import bg from "../../../assets/images/register.jpg";
+import type { TRegister } from "../../../schemas/register.shema";
+import { useRegister } from "../../../hooks/mutations/useRegister";
 
 export const Register = () => {
   const methods = useRegisterForm();
+  const registerMutate = useRegister();
   const {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
   } = methods;
 
-  const onSubmit: SubmitHandler<TRegisterForm> = async (data) => {
-    setTimeout(async () => {
-      console.log(data);
-      return await Promise.resolve();
-    }, 1500);
+  const onSubmit: SubmitHandler<TRegister> = async (data) => {
+    registerMutate.mutate(data);
   };
 
   return (
@@ -60,22 +57,17 @@ export const Register = () => {
             </div>
             <div className="flex flex-col gap-1.75 inline-full">
               <Input
-                name="confirm"
+                name="passwordConfirm"
                 type="password"
                 placeholder="Confirm Password"
               />
-              {errors?.confirm && (
+              {errors?.passwordConfirm && (
                 <span className="text-[14px] font-normal text-error self-end">
-                  {errors?.confirm?.message}
+                  {errors?.passwordConfirm?.message}
                 </span>
               )}
             </div>
-            <Button
-              type="submit"
-              disabled={!isValid}
-              variant="normal"
-              onClick={() => console.log("send")}
-            >
+            <Button type="submit" disabled={!isValid} variant="normal">
               {isSubmitting ? "Send..." : "Sign up"}
             </Button>
           </form>
