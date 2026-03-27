@@ -4,12 +4,12 @@ import { registerSchema, type TRegister } from "../../schemas/register.shema";
 
 export const useRegisterForm = (): UseFormReturn<TRegister> => {
   return useForm<TRegister>({
+    mode: "onChange",
     defaultValues: {
       email: "",
       password: "",
       passwordConfirm: "",
     },
-    mode: "onBlur",
     resolver: zodResolver(registerSchema),
   });
 };
