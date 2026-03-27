@@ -2,12 +2,15 @@ import { FiUser } from "react-icons/fi";
 import { Heading } from "../../components/ui/Heading/Heading";
 import { Table } from "../../components/ui/Table/Table";
 import bg from "../../assets/images/profile-bg.png";
+import { useProfile } from "../../hooks/queries/useProfile";
 
 export const Profile = () => {
+  const { data } = useProfile();
+
   const inf = {
-    minutes: 2000,
-    workouts: 20,
-    kg: 1000,
+    minutes: data?.workout_minutes ?? 0,
+    workouts: data?.workouts_count ?? 0,
+    kg: data?.weight_lifted ?? 0,
   };
 
   return (

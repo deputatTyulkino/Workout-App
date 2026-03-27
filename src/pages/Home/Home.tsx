@@ -5,12 +5,17 @@ import { ROUTES } from "../../constants/routes.const";
 import { Table } from "../../components/ui/Table/Table";
 import homeBg from "../../assets/images/home-bg.png";
 import { useAuth } from "../../store/Auth/useAuth";
+import { useProfile } from "../../hooks/queries/useProfile";
+import { capitalize } from "../../utils/Capitalize";
+import { getLevel } from "../../utils/getLevel";
 
 export const Home = () => {
+  const { data } = useProfile();
+
   const inf = {
-    minutes: 20,
-    level: "Hard",
-    up: 5,
+    minutes: data?.workout_minutes ?? 0,
+    level: capitalize(getLevel(data?.workouts_count)),
+    kg: data?.weight_lifted ?? 0,
   };
 
   const { isAuth } = useAuth();
@@ -34,7 +39,9 @@ export const Home = () => {
       ) : (
         <>
           <Heading>Welcome!</Heading>
-          <p className="text-[22px]">Log in to access your personal account</p>
+          <p className="text-[22px] text-center">
+            Log in to access your personal account
+          </p>
           <Button variant="main" onClick={() => navigate(ROUTES.login)}>
             Login
           </Button>

@@ -4,7 +4,7 @@ import { capitalize } from "../../../utils/Capitalize";
 interface InfHome {
   minutes: number;
   level: string;
-  up: number;
+  kg: number;
 }
 
 interface InfProfile {
@@ -14,7 +14,7 @@ interface InfProfile {
 }
 
 type Props = {
-  inf: InfHome | InfProfile;
+  inf: Partial<InfHome> | Partial<InfProfile>;
 };
 
 export const Table = ({ inf }: Props) => {
@@ -41,7 +41,7 @@ export const Table = ({ inf }: Props) => {
                 key={`${id}-cell-${key}`}
                 className="text-white text-table font-bold text-center"
               >
-                {key === "up" ? value + "%" : value}
+                {value}
               </td>
             ),
           )}
