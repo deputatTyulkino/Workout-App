@@ -5,7 +5,7 @@ import { Input } from "../../../components/ui/Input/Input";
 import { Link } from "react-router";
 import { useRegisterForm } from "../../../hooks/forms/useRegisterForm";
 import bg from "../../../assets/images/register.jpg";
-import type { TRegister } from "../../../schemas/register.shema";
+import type { TRegister } from "../../../schemas/register.schema";
 import { useRegister } from "../../../hooks/mutations/useRegister";
 
 export const Register = () => {

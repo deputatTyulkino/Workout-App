@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { ApiServices } from "../../api/endpoints/auth";
-import type { TRegister } from "../../schemas/register.shema";
+import type { TRegister } from "../../schemas/register.schema";
 import { useLocation, useNavigate } from "react-router";
 import Cookies from "js-cookie";
 import { TOKEN_KEY } from "../../constants/token.const";

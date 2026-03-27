@@ -3,7 +3,7 @@ import { Button } from "../../../components/ui/Button/Button";
 import { Heading } from "../../../components/ui/Heading/Heading";
 import { Input } from "../../../components/ui/Input/Input";
 import { useLoginForm } from "../../../hooks/forms/useLoginForm";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 import bg from "../../../assets/images/auth.jpg";
 import type { TLogin } from "../../../schemas/login.schema";
 import { useAuth } from "../../../store/Auth/useAuth";
@@ -11,6 +11,7 @@ import { useAuth } from "../../../store/Auth/useAuth";
 export const Login = () => {
   const { login } = useAuth();
   const methods = useLoginForm();
+  const { state } = useLocation();
   const {
     handleSubmit,
     formState: { errors, isValid, isSubmitting },
@@ -62,6 +63,7 @@ export const Login = () => {
           className="focus-visible:text-white hover:text-white decoration-0 text-gray text-[16px] font-normal transition-colors duration-300 ease-out"
           to="/auth/register"
           replace
+          state={state}
         >
           There's not account?
         </Link>

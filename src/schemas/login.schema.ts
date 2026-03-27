@@ -1,7 +1,7 @@
 import * as z from "zod";
 import { UserSchema } from "./user.schema";
 
-export const loginShema = UserSchema.pick({
+export const loginSchema = UserSchema.pick({
   email: true,
 }).extend({
   password: z
@@ -21,4 +21,4 @@ export const loginShema = UserSchema.pick({
     ),
 });
 
-export type TLogin = z.infer<typeof loginShema>;
+export type TLogin = z.infer<typeof loginSchema>;
