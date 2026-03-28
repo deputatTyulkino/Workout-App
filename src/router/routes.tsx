@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
         ),
         children: [
           {
-            path: ":workout_id",
+            path: "workouts/:workout_id",
             element: <Workout />,
             children: [
               {
