@@ -6,8 +6,8 @@ export const menu = [
     link: ROUTES.workouts,
   },
   {
-    title: "Create new",
-    link: ROUTES.new_workout,
+    title: "Create Exercise",
+    link: ROUTES.new_exercise,
   },
   {
     title: "Profile",
